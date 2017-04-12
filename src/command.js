@@ -28,12 +28,21 @@ const remove = (contactManager) => {
       });
 };
 
+const serve = (server, healthCtrl, contactsCtrl) => {
+  commander
+      .command('serve')
+      .description('Launching the server')
+      .action(() => {
+        server.run(healthCtrl, contactsCtrl);
+      });
+};
 
 module.exports = {
-  run: (contactManager) => {
+  run: (contactManager, server, healthCtrl, contactsCtrl) => {
     list(contactManager);
     add(contactManager);
     remove(contactManager);
+    serve(server, healthCtrl, contactsCtrl);
 
     if (process.argv.length <= 2) commander.help();
     commander.parse(process.argv);
