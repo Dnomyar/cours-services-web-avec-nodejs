@@ -20,7 +20,7 @@
   "engineStrict": true,
   "main": "app",
   "scripts": {
-    "start": "node app.js",
+    "start": "node src/app.js",
     "lint": "eslint *.js",
     "lint:fix": "eslint --fix *.js tests/*.js",
     "mocha": "mocha --timeout 10000",
@@ -43,7 +43,7 @@
   },
   "config": {
     "port": 3232,
-    "contacts": "./contacts.json"
+    "contacts": "contacts.json"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
