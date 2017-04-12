@@ -18,7 +18,7 @@
     "npm": ">=2.0"
   },
   "engineStrict": true,
-  "main": "app",
+  "main": "src/app",
   "scripts": {
     "start": "node src/app.js",
     "lint": "eslint *.js",
