@@ -30,7 +30,7 @@ class ContactManager {
   }
 
   removeContact(id) {
-    this.contacts = this.contacts.filter(contact => contact.id === id);
+    this.contacts = this.contacts.filter(contact => contact.id !== id);
     this.saveContact();
   }
 
