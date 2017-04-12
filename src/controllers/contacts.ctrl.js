@@ -1,3 +1,4 @@
+
 class ContactsController {
 
   constructor(contactManager) {
@@ -23,7 +24,10 @@ class ContactsController {
   addContacts(req, res) {
     const contactIn = req.body;
     const contactAdded = this.contactManager.addContact(contactIn.firstName, contactIn.lastName);
-    res.send(contactAdded);
+    res.status(201);
+    const location = `/contacts/${contactAdded.id}`;
+    res.location(location);
+    res.send(location);
   }
 
   deleteContact(req, res) {
