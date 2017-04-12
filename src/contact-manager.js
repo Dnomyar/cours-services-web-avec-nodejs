@@ -33,8 +33,11 @@ class ContactManager {
   }
 
   removeContact(id) {
+    const nbBefore = this.contacts.length;
     this.contacts = this.contacts.filter(contact => contact.id !== id);
+    const nbAfter = this.contacts.length;
     this.saveContacts();
+    return nbBefore !== nbAfter;
   }
 
   getContacts() {

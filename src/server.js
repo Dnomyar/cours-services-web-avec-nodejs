@@ -18,6 +18,7 @@ module.exports = {
     app.get('/contacts', (req, res) => contactsCtrl.getContacts(req, res));
     app.post('/contacts', (req, res) => contactsCtrl.addContacts(req, res));
     app.get('/contacts/:id', (req, res) => contactsCtrl.getContact(req, res));
+    app.delete('/contacts/:id', (req, res) => contactsCtrl.deleteContact(req, res));
 
     app.listen(port, () => {
       console.log(`port: ${port}`);

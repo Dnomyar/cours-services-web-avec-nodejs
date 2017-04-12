@@ -25,6 +25,17 @@ class ContactsController {
     const contactAdded = this.contactManager.addContact(contactIn.firstName, contactIn.lastName);
     res.send(contactAdded);
   }
+
+  deleteContact(req, res) {
+    const contact = this.contactManager.removeContact(req.params.id);
+    if (!contact) {
+      res.status(404);
+      res.send('Not found');
+    } else {
+      res.status(204);
+      res.send('');
+    }
+  }
 }
 
 module.exports = ContactsController;
