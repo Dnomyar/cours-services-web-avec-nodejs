@@ -15,23 +15,29 @@ class ContactManager {
       .forEach(row => console.log(row));
   }
 
-  saveContact() {
+  saveContacts() {
     fs.writeJson(this.contactFilePath, this.contacts);
   }
 
 
   addContact(firstName, lastName) {
-    this.contacts.push({
+    const contact = {
       id: idGenerator.generateId(),
       firstName,
       lastName,
-    });
-    this.saveContact();
+    };
+    this.contacts.push(contact);
+    this.saveContacts();
+    return contact;
   }
 
   removeContact(id) {
     this.contacts = this.contacts.filter(contact => contact.id !== id);
-    this.saveContact();
+    this.saveContacts();
+  }
+
+  getContacts() {
+    return this.contacts;
   }
 
 }
