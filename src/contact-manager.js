@@ -1,5 +1,6 @@
 const idGenerator = require('./helper/id-generator.js');
 const fs = require('./helper/fs.js');
+const _ = require('lodash');
 
 
 class ContactManager {
@@ -38,6 +39,10 @@ class ContactManager {
 
   getContacts() {
     return this.contacts;
+  }
+
+  getContact(id) {
+    return _.find(this.contacts, contact => contact.id === id);
   }
 
 }
